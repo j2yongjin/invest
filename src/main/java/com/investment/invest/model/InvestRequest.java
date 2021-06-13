@@ -20,14 +20,6 @@ public class InvestRequest implements RequestValidate {
     private Product product;
     private MonetaryAmount monetaryAmount;
 
-    @Override
-    public void validate() {
-        if(Objects.isNull(product) || Objects.isNull(product.identifier) || product.identifier.longValue() <=0L)
-            throw new InvestServiceException(ErrorCode.INVALID_PARAMETER,"product.identifier 값이 유효하지 않습니다.");
-
-        if(Objects.isNull(monetaryAmount) || Objects.isNull(monetaryAmount.value) || monetaryAmount.value.doubleValue() <=0)
-            throw new InvestServiceException(ErrorCode.INVALID_PARAMETER,"monetaryAmount.value 값이 유효하지 않습니다.");
-    }
 
     @NoArgsConstructor
     @Getter
@@ -49,5 +41,14 @@ public class InvestRequest implements RequestValidate {
         }
 
         private Number value;
+    }
+
+    @Override
+    public void validate() {
+        if(Objects.isNull(product) || Objects.isNull(product.identifier) || product.identifier.longValue() <=0L)
+            throw new InvestServiceException(ErrorCode.INVALID_PARAMETER,"product.identifier 값이 유효하지 않습니다.");
+
+        if(Objects.isNull(monetaryAmount) || Objects.isNull(monetaryAmount.value) || monetaryAmount.value.doubleValue() <=0)
+            throw new InvestServiceException(ErrorCode.INVALID_PARAMETER,"monetaryAmount.value 값이 유효하지 않습니다.");
     }
 }

@@ -28,7 +28,6 @@ public class InvestedProductRepositoryImpl implements InvestedProductRepository{
                 , investSales.investedUserCnt
                 ,investProduct.startedAt , investProduct.finishedAt))
                 .from(investProduct).leftJoin(investSales).on(investProduct.productId.eq(investSales.productId))
-//                .where(investProduct.startedAt.goe(nowTime).and(investProduct.finishedAt.loe(nowTime)))
                 .where(investProduct.startedAt.loe(nowTime).and(investProduct.finishedAt.goe(nowTime)))
                 .fetch();
 

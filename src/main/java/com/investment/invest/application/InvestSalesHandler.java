@@ -23,13 +23,7 @@ public class InvestSalesHandler{
     @Async
     @TransactionalEventListener(phase = TransactionPhase.AFTER_COMMIT)
     public void saveInvestSales(InvestSalesEvent event) {
-//        InvestSales sales = salesRepository.findOneByProductId(event.getInvestProduct().getProductId());
-//        if(sales== null){
-//            salesRepository.save(InvestSales.of(event.getInvestProduct().getProductId(), BigDecimal.valueOf(event.getAmount())
-//                    ,1L));
-//        }else{
-            salesRepository.updateSales(BigDecimal.valueOf(event.getAmount()),event.getInvestProduct().getProductId());
-//        }
+        salesRepository.updateSales(BigDecimal.valueOf(event.getAmount()),event.getInvestProduct().getProductId());
         log.info("saved investSales : {} " , event.getInvestProduct());
     }
 }
