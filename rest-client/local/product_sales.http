@@ -1,0 +1,3 @@
+GET {{url}}//investment/v1/lookup/sales
+Content-Type: application/json
+

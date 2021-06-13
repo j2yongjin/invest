@@ -1,0 +1,13 @@
+POST {{url}}//investment/v1/invest
+Content-Type: application/json
+X-USER-ID: 1004
+
+{
+  "product": {
+    "identifier": 1
+  },
+  "monetaryAmount" : {
+    "value": 100
+  }
+
+}
