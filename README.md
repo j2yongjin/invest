@@ -5,7 +5,7 @@
     - InvestmentApplication 실행
 
 #### 기능 테스트
-    - Mock Data 설정 
+    - Mock Data 기반으로 기능 테스트 수행함  
       H2 DB에 테스트용 상품 등록(com.investment.config.DataInitConfig)
 
     - rest-client/local 폴더에 파일 실행
